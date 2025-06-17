@@ -1,6 +1,6 @@
-# Visualizing SIFT Descriptors with t-SNE and PCA
+# Visualizing SIFT Descriptors with t-SNE, PCA, and HDBSCAN
 
-This project visualizes high-dimensional SIFT descriptors using two dimensionality reduction techniques: **t-SNE** and **PCA**. It helps compare the structure of the dataset when projected onto 2D space.
+This project visualizes high-dimensional SIFT descriptors using dimensionality reduction techniques like **t-SNE**, **PCA**, and **UMAP**, combined with clustering using **HDBSCAN**. It helps reveal the structure and distribution of the dataset when projected onto 2D space, and explores how unsupervised clustering can expose dominant groupings within local image features.
 
 ## Dataset
 
@@ -64,12 +64,60 @@ The script generates a 2D scatter plot of the descriptors using either t-SNE or 
 
 ## 🔍 PCA Visualization
 
-![PCA Projection](../images/pca_projection.png)
+![PCA Projection](../images/pca_kmeans_clusters.png)
 
+---
+
+### 🧠 Clustering with HDBSCAN
+
+Beyond visualization, we applied **HDBSCAN** (a density-based clustering algorithm) to group similar SIFT descriptors based on their structure in high-dimensional space. Clustering was performed in the original 128D feature space, and the results were visualized using both **PCA** and **UMAP** projections.
+
+### 📍 Why HDBSCAN?
+
+Unlike KMeans, HDBSCAN:
+
+* Does **not require specifying the number of clusters**
+* Can detect **clusters of varying density and shape**
+* Automatically labels **outliers** as noise (`label = -1`)
+
+This makes it highly suitable for unsupervised feature datasets like SIFT.
+
+---
+
+### 📉 PCA + HDBSCAN
+
+![PCA + HDBSCAN](../images/sift_hdbscan_clusters.png)
+
+When visualized with PCA, HDBSCAN identifies two major clusters with some noise points (in red). However, since PCA is linear, the separation is not perfect — some overlap exists between clusters.
+
+---
+
+### 🌐 UMAP + HDBSCAN
+
+![UMAP + HDBSCAN](../images/umap_hdbscan_clusters.png)
+
+Using UMAP, we observe **clearer cluster separation**. The two dominant groups are well isolated along the UMAP-1 axis. Outliers (red points) are neatly pushed to cluster borders or sparse regions. This result confirms that **UMAP preserves local structure** more effectively and helps HDBSCAN express clustering boundaries more naturally.
+
+---
+
+### 🧠 Interpretation
+
+* **Two primary clusters** likely reflect dominant gradient orientations or patch-level structures inherent to the SIFT algorithm.
+* **Red noise points** suggest some descriptors are outliers or ambiguously positioned between clusters.
+* UMAP is clearly better at revealing the **true geometry** of the data, complementing HDBSCAN's structure-aware clustering.
 
 ## License
 
 This project is released under the MIT License.
+
+## 🔗 Related Notebooks
+
+Explore the interactive workflows used to generate and interpret the visualizations:
+
+* [SIFT Visualization: (TSNE & PCA)](../experiments/notebooks/visualize_sift_tsne_pca.ipynb)
+* [SIFT Visualization: (KNN + PCA)](../experiments/notebooks/visualize_sift_knn_pca_clustering.ipynb)
+* [SIFT Visualization: Clustering with HDBSCAN + PCA](../experiments/notebooks/hdbscan_pca_clustering.ipynb)
+* [SIFT Visualization: Clustering with HDBSCAN + UMAP](../experiments/notebooks/hdbscan_umap_clustering.ipynb)
 
 ## Author
 
