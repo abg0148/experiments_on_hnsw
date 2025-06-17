@@ -10,7 +10,7 @@ def read_fvecs(file_path):
     data = np.fromfile(file_path, dtype=np.float32)
     return data.reshape(-1, dim + 1)[:, 1:]
 
-sift_vectors = read_fvecs("siftsmall_base.fvecs")
+sift_vectors = read_fvecs("../data/siftsmall_base.fvecs")
 
 
 from sklearn.manifold import TSNE

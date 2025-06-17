@@ -21,7 +21,7 @@ p.add_items(data, ids)
 # Controlling the recall by setting ef:
 p.set_ef(50) # ef should always be > k
 
-# Query dataset, k - number of the closest elements (returns 2 numpy arrays)
+# Query data, k - number of the closest elements (returns 2 numpy arrays)
 labels, distances = p.knn_query(data, k = 1)
 
 # Index objects support pickling
