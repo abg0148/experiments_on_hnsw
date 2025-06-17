@@ -59,10 +59,13 @@ To visualize PCA results, just replace `sift_2d_tsne` with `sift_2d` in the plot
 The script generates a 2D scatter plot of the descriptors using either t-SNE or PCA. t-SNE typically shows local clusters more clearly, while PCA reflects variance direction.
 
 ## 📊 t-SNE Visualization
-![t-SNE Projection](results/tsne_projection.png)
+
+![t-SNE Projection](../images/tsne_projection.png)
 
 ## 🔍 PCA Visualization
-![PCA Projection](results/pca_projection.png)
+
+![PCA Projection](../images/pca_projection.png)
+
 
 ## License
 
