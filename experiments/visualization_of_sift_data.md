@@ -147,5 +147,3 @@ Explore the interactive workflows used to generate and interpret the visualizati
 Abhinav Gupta
 
 ---
-
-*Note: If you also want to save the visualizations to disk or include command-line arguments, feel free to extend the script.*
