@@ -64,11 +64,34 @@ The script generates a 2D scatter plot of the descriptors using either t-SNE or 
 
 ## 🔍 PCA Visualization
 
+![t-SNE Projection](../images/pca_projection.png)
+
+---
+
+## 🔎 PCA + KMeans Clustering
+
+To better understand potential patterns in the high-dimensional SIFT descriptors, we applied **KMeans clustering** directly in the original 128D space and then projected the results using **PCA** for visualization.
+
+KMeans is a well-known centroid-based clustering algorithm that works best when the data clusters are globular and well-separated. It is useful as a quick baseline for understanding separability and distribution.
+
+### 🔹 Why PCA + KMeans?
+
+* **Clustering in original space:** ensures true structural grouping is attempted before any transformation.
+* **PCA for 2D plotting:** helps in visual inspection of KMeans behavior and cluster compactness.
+
+### 🔍 Observations:
+
+* The PCA + KMeans plot reveals clear separation for several clusters.
+* Some cluster overlaps are visible, suggesting PCA’s linear projection can’t fully separate them.
+* Cluster centroids seem aligned along major variance axes, reflecting KMeans’ assumptions.
+
+This clustering serves as a helpful contrast to HDBSCAN which follows.
+
 ![PCA Projection](../images/pca_kmeans_clusters.png)
 
 ---
 
-### 🧠 Clustering with HDBSCAN
+### 🧐 Clustering with HDBSCAN
 
 Beyond visualization, we applied **HDBSCAN** (a density-based clustering algorithm) to group similar SIFT descriptors based on their structure in high-dimensional space. Clustering was performed in the original 128D feature space, and the results were visualized using both **PCA** and **UMAP** projections.
 
@@ -100,7 +123,7 @@ Using UMAP, we observe **clearer cluster separation**. The two dominant groups a
 
 ---
 
-### 🧠 Interpretation
+### 🧐 Interpretation
 
 * **Two primary clusters** likely reflect dominant gradient orientations or patch-level structures inherent to the SIFT algorithm.
 * **Red noise points** suggest some descriptors are outliers or ambiguously positioned between clusters.
