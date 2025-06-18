@@ -125,10 +125,6 @@ Using **UMAP** for projection led to significantly better visual separation of c
 * Noise points may represent less common or ambiguous descriptors.
 * UMAP + HDBSCAN proved to be the most informative combination, revealing compact, well-separated clusters and facilitating meaningful interpretation.
 
-## License
-
-This project is released under the MIT License.
-
 ## Related Notebooks
 
 Explore the interactive workflows used to generate and interpret the visualizations:
@@ -142,6 +138,7 @@ Explore the interactive workflows used to generate and interpret the visualizati
 
 Abhinav Gupta
 
----
 
-*Note: To save visualizations or include CLI functionality, you can extend the existing scripts as needed.*
+## License
+
+This project is released under the MIT License.
