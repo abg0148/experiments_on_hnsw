@@ -1,6 +1,6 @@
 # Visualizing SIFT Descriptors with t-SNE, PCA, and HDBSCAN
 
-This project visualizes high-dimensional SIFT descriptors using dimensionality reduction techniques like **t-SNE**, **PCA**, and **UMAP**, combined with clustering using **HDBSCAN**. It helps reveal the structure and distribution of the dataset when projected onto 2D space, and explores how unsupervised clustering can expose dominant groupings within local image features.
+This project visualizes high-dimensional SIFT descriptors using dimensionality reduction techniques like **t-SNE**, **PCA**, and **UMAP**, combined with clustering using **HDBSCAN** and **K Means Clustering**. It helps reveal the structure and distribution of the dataset when projected onto 2D space, and explores how unsupervised clustering can expose dominant groupings within local image features.
 
 ## Dataset
 
